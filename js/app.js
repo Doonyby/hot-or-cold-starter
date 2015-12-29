@@ -125,7 +125,7 @@ $(document).ready(pageLoad);
   	//fetch dom objects
   	newButton = $('a.new');
   	form = $('form');
-  	input = $form.find('#userGuess');
+  	input = form.find('#userGuess');
   	feedback = $('#feedback');
   	count = $('#count');
   	guessList = $('#guessList');
