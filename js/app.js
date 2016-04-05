@@ -15,3 +15,17 @@ $(document).ready(function(){
 });
 
 
+
+
+
+
+
+
+function newGame() {
+	$('.new').click(function() {
+		$('#feedback').?();
+		$('#userGuess').?();
+		$('#count').?();
+		$('#guessList').?();
+	})
+}
