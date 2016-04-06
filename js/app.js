@@ -1,19 +1,37 @@
 
 $(document).ready(function() {
-	(function pickNumber() {
-  		var mysteryNumber = parseInt((Math.random() * 100) + 1);
-  		console.log(mysteryNumber);
-  	})();
+	
+	var mysteryNumber = parseInt((Math.random() * 100) + 1);
+	console.log(mysteryNumber);
 
+	$('#userinput').submit(function(e) {
+		e.preventDefault();
+		$('#guessList').append('<li>' + ($('#userGuess').val()) + '</li>');
+		var shoot = parseInt($('#userGuess').val());
+			if (shoot === mysteryNumber) {
+				$('#feedback').text('You won!  Click new game to play again!');
+			}
+			else {
+				$('#feedback').text('Cold!');
+			}
+	
+		
+		$('#userGuess').val('');
+	})
 
 
 });
 
-function newGame() {
+/*var clicks = 0;
+function linkClick() {
+    document.getElementById('clicked').value = ++clicks;
+}*/
+
+/*function newGame() {
 		$('.new').click(function() {
 			$('.game').empty();
 		})
-	}
+	}*/
 
 
 
