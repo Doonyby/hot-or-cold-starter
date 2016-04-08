@@ -7,8 +7,11 @@ $(document).ready(function() {
         $('#userinput').submit(function(e) {
             e.preventDefault();
             var guess = parseInt($('#userGuess').val(), 10);
-            if (guess === NaN) {
-                alert('Please input a number.');
+            if (guess == NaN) {
+                alert('not a number');
+            }
+            else if (guess > 100 || guess < 0) {
+                alert('please enter number between 0 and 100')
             }
             else {
                 function sameNumberCheck() {
@@ -18,34 +21,40 @@ $(document).ready(function() {
                         function validNumberProcess() {
                             var counter = 0;
                             counter++;
+                            console.log(counter);
                             var diff = Math.abs(guess - mysteryNumber);
-                            $('#count').text(counter)
+                            $('#count').text(counter);
                             $('#guessList').append('<li>' + ($('#userGuess').val()) + '</li>'); 
                             if (guess === mysteryNumber) {
                                 $('#feedback').text('You won!  Click new game to play again!');
                                 $('#guessButton').css({"visibility":"hidden"});
                             }
-                            else if (diff > 50) {
+                            else if (diff > 20) {
                                 $('#feedback').text('Cold!');
                             }
-                            else if (diff > 30) {
+                            else if (diff > 19) {
                                 $('#feedback').text('Warm!');
                             }
-                            else if (diff > 10) {
+                            else if (diff > 9) {
                                 $('#feedback').text('Hot!');
                             }
-                            else if (diff > 5) {
+                            else if (diff > 4) {
                                 $('#feedback').text('Very hot!');
                             }
                             else {
                                 $('#feedback').text('Fire!');
                             }
                         }
+
+                        validNumberProcess();
                     }
                     else { 
-                    alert('You have already guessed that number.');
+                        alert('You have already guessed that number.');
+                        console.log('Same number guess');
                     }
                 }
+
+                sameNumberCheck();
             }
             
             $('#userGuess').val('');
@@ -64,9 +73,7 @@ $(document).ready(function() {
     });
 
     $('.new').click(function() {
-        console.log('new game.');
-        $('#guessList').empty();
-        hotorcold();
+        location.reload();
     });
 
     hotorcold();
