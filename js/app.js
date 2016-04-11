@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     
     var counter = 0;
@@ -81,25 +80,4 @@ $(document).ready(function() {
 
     hotorcold();
 
-});
-
-
-
-
-    
-
-
-
-    
-
-  
-
-
-
-
-
-
-
-
-
-    
+}); 
